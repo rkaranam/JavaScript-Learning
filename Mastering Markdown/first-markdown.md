@@ -1,4 +1,4 @@
-#WesBos Markdown Tutorial
+# WesBos Markdown Tutorial
 
 Wesbos is *cool*.
 
