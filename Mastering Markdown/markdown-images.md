@@ -2,7 +2,7 @@
 
 ### Random Image
 
-!["Alternate Text"](https://picsum.photos/200/300/?random "Tool Tip")
+![Alternate Text](https://picsum.photos/200/300/?random "Tool Tip")
 
 ### Linking Images
 
