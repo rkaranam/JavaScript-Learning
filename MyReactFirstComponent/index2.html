@@ -1,0 +1,47 @@
+<!HTML>
+<html>
+<head>
+	<title>Learning React.js</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.1/react.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.1/react-dom.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div id="app"></div>
+			</div>
+		</div>
+	</div>
+	<script type="text/babel">
+		var MyApp = React.createClass({	
+			
+			getInitialState: function() {
+				return {
+					text: "Hello World!"
+				}
+			},		
+
+			render: function() {
+				return(
+					<div>
+						<h1>{this.state.text}</h1><br/>
+						<button className="btn btn-primary" onClick={this.changeText}>Click</button>
+					</div>
+				)
+			},
+
+			changeText: function() {
+				this.setState({text: "Welcome To My App"});
+			}
+		});
+
+		ReactDOM.render(
+			<MyApp />, document.getElementById('app')
+		);
+	</script>
+</body>
+</html>
