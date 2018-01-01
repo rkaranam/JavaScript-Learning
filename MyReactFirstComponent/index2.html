@@ -28,14 +28,29 @@
 			render: function() {
 				return(
 					<div>
-						<h1>{this.state.text}</h1><br/>
-						<button className="btn btn-primary" onClick={this.changeText}>Click</button>
+						<h1>{this.state.text}</h1>
+						<form>
+							<input type="text" onChange={this.changeText} value={this.state.text}/>&nbsp;
+							<button className="btn btn-primary">Click</button>
+						</form>						
+						<br/>
+						<ComponentTwo text={this.state.text}/>
 					</div>
 				)
 			},
 
-			changeText: function() {
-				this.setState({text: "Welcome To My App"});
+			changeText: function(e) {
+				this.setState({text: e.target.value});
+			}
+		});
+
+		var ComponentTwo = React.createClass({
+			render: function() {
+				return(
+					<div>
+						<h2>{this.props.text}</h2>
+					</div>						
+				);
 			}
 		});
 
