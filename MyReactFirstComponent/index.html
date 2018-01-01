@@ -41,11 +41,26 @@
 						  <hr className="my-4"/>
 						  <p>{this.props.text2}</p>
 						  <p className="lead">
-						    <a className="btn btn-primary btn-lg" href={this.props.website} role="button">Credits</a>
+						    <a onClick={this.onClickFunction} className="btn btn-primary btn-lg" href="#" role="button">Credits</a>&nbsp;
+						    <a onClick={this.onClickSingleArgument.bind(this, 'Hello World!')} className="btn btn-primary btn-lg" href="#" role="button">1 Argument</a>&nbsp;
+						    <a onClick={this.onClickTwoArguments.bind(this, 'Goodbye', 'World!')} className="btn btn-primary btn-lg" href="#" role="button">2 Arguments</a>
 						  </p>
 						</div>
 					</div>
 				)
+			},
+
+			onClickFunction: function() {
+				alert("Click Event Worked!!");
+				console.log("Logging the onClick event!!");
+			},
+
+			onClickSingleArgument: function(greeting) {
+				alert(greeting);
+			},
+
+			onClickTwoArguments: function(arg1, arg2) {
+				alert(arg1 + " " + arg2);
 			}
 		});
 

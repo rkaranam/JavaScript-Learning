@@ -1,0 +1,73 @@
+ReactJS - Overview:
+===================
+
+A JS library used to create user interfaces
+The 'V' in MVC
+React can be run on both the client & the server(NodeJs and Express, react can be run here also)
+
+Virtual DOM
+-----------
+React creates a slimmer version of the DOM and updates only the parts that need to be re-rendered
+It's faster
+One way reactive data flow(one way data-binding)
+
+Why use react?
+--------------
+Simple
+Declarative
+Readable & Reusable
+
+JSX: JavaScript Syntax Extension
+--------------------------------
+- A tag syntax very similar to XML & HTML
+- Not required but recommended (Makes things MUCH easier)
+
+Babel JavaScript Compiler
+-------------------------
+- Transforms JSX code into JS
+- Lets us write code that uses the ES6(ES2015) syntax
+- Babel works very well with Webpack which is a module bundler and also has a dev server
+- <script type="text/babel">
+
+var HelloMessage = React.createClass({
+	render:function() {
+		return <div>Hello {this.props.name}</div>;
+	}
+});
+
+ReactDOM.render(
+	<HelloMessage name="Rajasekhar"/>,
+	Document.getElementById('app')
+);
+
+States & Props
+--------------
+- Components can hold properties(props) that can be passed in as attributes
+- Components can maintain internal "state" data
+- When a state is changed, the component is re-rendered and markup will be updated. This makes React very dynamic
+
+Lifecycle Methods
+-----------------
+React fires off specific methods when a component is rendered or updated
+* render - Renders a component. The only one that is required
+* getInitialState - You can set default values for your states
+* getDefaultProps - Set defaults for properties
+* componentWillMount - Invoked once on client & server before render
+* componentDidMount - Invoked after the first render
+
+React Addons
+------------
+- Collection of modules that aid in developing react.js applications
+- Animation Addons
+- 2 way data binding addons - React Link
+- Testing Addons
+
+Your First Component
+====================
+Bootstrap Jumbotron
+1. https://fb.me/react-0.14.7.js
+2. https://fb.me/react-dom-0.14.7.js
+3. babel-core 5.8.25 cloudfare cdn
+4. bootstrap 3.3.6 cdn
+
+
