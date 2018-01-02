@@ -1,0 +1,81 @@
+<!HTML>
+<html>
+<head>
+	<title>Learning React.js</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.1/react.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.1/react-dom.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div id="app"></div>
+			</div>
+		</div>
+	</div>
+	<script type="text/babel">
+		var MyApp = React.createClass({	
+			
+			getInitialState: function() {
+				return {
+					text: "",
+					todos: [
+						{
+							id: 1,
+							name: "Spring and Microserivces Meetup"
+						},
+						{
+							id: 2,
+							name: "Mysterious Island Meetup"
+						},
+						{
+							id: 3,
+							name: "OpenSource Meetup"
+						}
+					]
+				}
+			},		
+
+			render: function() {
+				return(
+					<div>
+						<TODOFORM />
+						<TODOLIST todos={this.state.todos} />
+					</div>
+				)
+			}
+		});
+
+		var TODOFORM = React.createClass({
+			render: function() {
+				return(
+					<div>
+						<h2>TODO FORM</h2>
+					</div>						
+				);
+			}
+		});
+
+		var TODOLIST = React.createClass({
+			render: function() {
+				return(
+					<ul className="list-group">
+						{
+							this.props.todos.map(todo => {
+								return <li className="list-group-item" todo={todo} key={todo.id}>{todo.name}</li>
+							})
+						}						
+					</ul>					
+				);
+			}
+		});
+
+		ReactDOM.render(
+			<MyApp />, document.getElementById('app')
+		);
+	</script>
+</body>
+</html>
