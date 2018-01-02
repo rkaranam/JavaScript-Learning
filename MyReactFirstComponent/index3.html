@@ -25,15 +25,15 @@
 					todos: [
 						{
 							id: 1,
-							name: "Spring and Microserivces Meetup"
+							text: "Spring and Microserivces Meetup"
 						},
 						{
 							id: 2,
-							name: "Mysterious Island Meetup"
+							text: "Mysterious Island Meetup"
 						},
 						{
 							id: 3,
-							name: "OpenSource Meetup"
+							text: "OpenSource Meetup"
 						}
 					]
 				}
@@ -42,10 +42,19 @@
 			render: function() {
 				return(
 					<div>
-						<TODOFORM />
+						<TODOFORM onTodoAdd={this.handleTodoAdd}/>
 						<TODOLIST todos={this.state.todos} />
 					</div>
 				)
+			},
+
+			handleTodoAdd: function(todoItem) {
+				alert(todoItem);
+				var newTodoItem = {
+					id: this.state.todos.length + 1,
+					text: todoItem
+				}
+				this.setState({todos: this.state.todos.concat(newTodoItem)});
 			}
 		});
 
@@ -53,9 +62,29 @@
 			render: function() {
 				return(
 					<div>
-						<h2>TODO FORM</h2>
+						<form className="form-group" onSubmit={this.onSubmitForm}>
+							<label>Todo Item: </label>
+							<input className="form-control" ref="text" onChange={this.onChangeText}/>
+						</form>
 					</div>						
 				);
+			},
+			onSubmitForm: function(e) {
+				e.preventDefault();;
+				var todoItem = this.refs.text.value;
+				if(!todoItem) {
+					alert("Please add a todo item!");
+					return;
+				}		
+
+				// we cannot access state here as it is not app
+				// So, we create a property and throw it to app
+				// There we use this property in state and solve the problem
+				this.props.onTodoAdd(todoItem);
+				this.refs.text.value = '';
+			},
+			onChangeText: function() {
+				console.log('Changing Todo Text');
 			}
 		});
 
@@ -65,7 +94,7 @@
 					<ul className="list-group">
 						{
 							this.props.todos.map(todo => {
-								return <li className="list-group-item" todo={todo} key={todo.id}>{todo.name}</li>
+								return <li className="list-group-item" todo={todo} key={todo.id}>{todo.text}</li>;
 							})
 						}						
 					</ul>					
