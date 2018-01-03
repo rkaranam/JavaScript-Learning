@@ -7,6 +7,14 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.1/react.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.1/react-dom.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.js"></script>
+	<style>
+		body {
+			margin-top: 30px;
+		}
+		a.delete {
+			color: red;
+		}
+	</style>
 </head>
 <body>
 	<div class="container">
@@ -43,7 +51,7 @@
 				return(
 					<div>
 						<TODOFORM onTodoAdd={this.handleTodoAdd}/>
-						<TODOLIST todos={this.state.todos} />
+						<TODOLIST todos={this.state.todos} onTodoDelete={this.handleTodoDelete}/>
 					</div>
 				)
 			},
@@ -55,7 +63,19 @@
 					text: todoItem
 				}
 				this.setState({todos: this.state.todos.concat(newTodoItem)});
+			},
+
+			handleTodoDelete: function(todoItem) {
+				var todosList = this.state.todos;
+				for(var i = 0; i < todosList.length; i++) {
+					if(todosList[i].id == todoItem.id) {
+						todosList.splice(i, 1);
+					}
+				}
+				this.setState({todos: todosList});
+				// console.log(todoItem);
 			}
+
 		});
 
 		var TODOFORM = React.createClass({
@@ -70,7 +90,7 @@
 				);
 			},
 			onSubmitForm: function(e) {
-				e.preventDefault();;
+				e.preventDefault();
 				var todoItem = this.refs.text.value;
 				if(!todoItem) {
 					alert("Please add a todo item!");
@@ -94,11 +114,16 @@
 					<ul className="list-group">
 						{
 							this.props.todos.map(todo => {
-								return <li className="list-group-item" todo={todo} key={todo.id}>{todo.text}</li>;
+								return <li className="list-group-item" todo={todo} key={todo.id}>{todo.text}&nbsp;<b><a className="delete" href="#" onClick={this.onDelete.bind(this, todo)}>X</a></b></li>;
 							})
 						}						
 					</ul>					
 				);
+			},
+
+			onDelete: function(todoItem) {
+				// console.log(todoItem);
+				this.props.onTodoDelete(todoItem);
 			}
 		});
 
