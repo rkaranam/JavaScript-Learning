@@ -57,13 +57,25 @@
   <audio data-key="75" src="drumkit-sounds/tom.wav"></audio>
   <audio data-key="76" src="drumkit-sounds/tink.wav"></audio>
 
-<script>
-  window.addEventListener('keydown', function(e) {
+<script> 
+  function playSound(e) {
     const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-    if(!audio) return;
-    console.log(audio);
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+    if(!audio) return; // if audio is null, stop the function here
+    audio.currentTime = 0; // rewind to the start of the sound        
     audio.play();
-  });
+    key.classList.add('playing');
+  }
+
+  function removeTransition(e) {
+    if(e.propertyName !== 'transform') return; // skip if it's not transform
+    this.classList.remove('playing');
+  }
+
+  const keys = document.querySelectorAll('.key');
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+
+  window.addEventListener('keydown', playSound);
 </script>
 
 
