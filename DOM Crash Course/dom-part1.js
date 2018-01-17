@@ -84,9 +84,14 @@ console.log(allLis);
 // alternate background colors to lis
 
 var oddItems = document.querySelectorAll("li:nth-child(odd)");
+var evenItems = document.querySelectorAll("li:nth-child(even)");
 
 for(var i = 0; i < oddItems.length; i++) {
     oddItems[i].style.backgroundColor = "#ccc";
+}
+
+for(var j = 0; j < evenItems.length; j++) {
+    evenItems[j].style.backgroundColor = "#ggg";
 }
  
 
