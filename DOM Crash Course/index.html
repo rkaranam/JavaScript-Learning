@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <title>Item Listner</title>
 </head>
 <body>
@@ -19,6 +19,11 @@
             <h2 class="title">Add Items</h2>
             <form class="form-inline mb-3">
                 <input type="text" class="form-control mr-2">
+                <select name="number-select" id="select" class="form-control mr-2">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
                 <input type="submit" class="btn btn-dark" value="Submit">
             </form>
             <h2 class="title">Items</h2>
@@ -28,8 +33,14 @@
                 <li class="list-group-item">Item 3</li>
                 <li class="list-group-item">Item 4</li>
             </ul>
+            <br>
+            <button class="btn btn-dark btn-block" id="button">Click Here</button>
+            <br>
+            <div id="output"></div>
+            <br>
+            <div id="test-area" style="width:400px;height:200px;background:coral"><h4>Hello Mr.DOM</h4></div>
         </div>
     </div>
-    <script src="dom-part2.js"></script>
+    <script src="dom-part3.js"></script>
 </body>
 </html> 
