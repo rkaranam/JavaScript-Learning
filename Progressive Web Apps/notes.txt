@@ -1,0 +1,58 @@
+Things to consider while building a great website:
+    1. Audience
+    2. Platforms
+    3. Connectivity
+    4. Data Costs
+    5. Usage Contexts
+
+Golden rule for web developers:
+    "Does a change make it harder for users to consume content or interact?"
+
+What was missing from web compared to native mobile apps?
+    1. Reliable Performance
+    2. Push Notifications
+    3. Homescreen icon metadata    
+
+LightHouse: 
+    https://developers.google.com/web/tools/lighthouse/   
+
+Progressive Web Apps:
+    * Reliable: Fast loading, work offline and on flaky networks
+    * Fast: Smooth animation, jank-free scrolling and seamless navigation
+    * Engaging: Launched from the home screen and send push notifications
+
+AliExpress:
+    After PWA
+        * 2x more page views         
+        * 74% increase in time spent
+        * 82% more conversions on iOS
+
+kongaez:
+    * Work offline for catalog and checkout functionality
+    * Minimizing data consumption
+    * 82% less data for initial load
+    * 92% less data to complete first transaction
+
+airberlin:
+    * Focused on post-booking experience
+    * Users require quick access to itinerary details, boarding pass and destination information
+    * Leveraged on caching to solve this problem
+    * load times of <1s for initial load time and even faster for sub-sequent loads
+    
+kayak.com:
+    Uses Credential Management API of pwa
+
+WashingtonPost PWA: wapo.com/pwa    
+
+The Weather Company: 
+    focused only on push notifications
+    rolled out in 30+ languages globally with web push notifications
+
+Booking.com:
+    started with small steps into pwa
+
+Alternative approches to integrate pwa technologies:
+    1. Build from the ground up
+    2. Start with a simple version
+    3. Focus on a single feature
+        
