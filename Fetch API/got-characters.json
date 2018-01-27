@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "name": "Ned Stark",
+        "house": "House Stark"
+    },
+    {
+        "id": 2,
+        "name": "Robert Baratheon",
+        "house": "House Baratheon"
+    },
+    {
+        "id": 3,
+        "name": "Jamie Lannister",
+        "house": "House Lannister"
+    },
+    {
+        "id": 4,
+        "name": "Tyrion Lannister",
+        "house": "House Lannister"
+    },
+    {
+        "id": 5,
+        "name": "Tywin Lannister",
+        "house": "House Lannister"
+    },
+    {
+        "id": 6,
+        "name": "Danereys Targaryen",
+        "house": "House Targaryen"
+    },
+    {
+        "id": 7,
+        "name": "Jon Snow",
+        "house": "House Stark & House Targaryen"
+    },
+    {
+        "id": 8,
+        "name": "Arya Stark",
+        "house": "House Stark"
+    },
+    {
+        "id": 9,
+        "name": "Theon Greyjoy",
+        "house": "House Greyjoy"
+    },
+    {
+        "id": 10,
+        "name": "Little Finger",
+        "house": ""
+    }
+]
