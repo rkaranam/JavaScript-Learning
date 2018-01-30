@@ -19,13 +19,19 @@
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
     ctx.lineWidth = 20;
+    ctx.globalCompositeOperation = 'multiply';
 
     let isDrawing = false;
     let lastX = 0;
     let lastY = 0;
+    let hue = 0;
+    let direction = hue;
 
     function draw(e) {
         if(!isDrawing) return;
+
+        ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+        // ctx.lineWidth = hue;
         
         ctx.beginPath();
         // start from
@@ -38,10 +44,22 @@
         lastX = e.offsetX;
         lastY = e.offsetY;
 
+        hue++;
+        if(hue >= 360) hue = 0;
+
+        if(ctx.lineWidth >= 100 || ctx.lineWidth <= 1) {
+          direction = !direction;
+        }
+        if(direction) {
+          ctx.lineWidth++;
+        } else {
+          ctx.lineWidth--;
+        }
+
     }
     canvas.addEventListener('mousedown', (e) => {
         isDrawing = true;
-        [lastX, lastY] = [e.offsetX, e.offsetY];
+        [lastX, lastY] = [e.offsetX, e.offsetY]; // Destructuring the array
     });
 
     canvas.addEventListener('mousemove', draw);
