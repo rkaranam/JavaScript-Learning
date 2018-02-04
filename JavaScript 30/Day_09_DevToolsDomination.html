@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+</head>
+<body>
+
+  <!-- 
+      To pause on click event, 
+      Go to browser tools, right-click on the element
+      Break on => attribute modification
+  -->
+  <p onClick="makeGreen()" class="dummy-class">×BREAK×DOWN×</p>
+
+  <script>
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+    // Regular
+    console.log('Hello Raj!');
+
+    // Interpolated
+    console.log("Hi, I am %s", "Raja Sekhar Karanam");
+    var character = "Sarah Connor";
+    console.log(`Hello ${character}, I am from future!`); // es 6 style
+
+    // Styled
+    console.log("%c Styled Text", 'font-size: 50px; background:red');
+
+    // warning!
+    console.warn("Something is wrong!");
+
+    // Error :|
+    console.error("CODE RED! CODE RED! CODE RED!");
+
+    // Info
+    console.info('Idiot at work!');
+
+    // Testing
+    console.assert(1 === 2, "1 is not equal to 2 idiot!");
+
+    const pTag = document.querySelector('p');
+    console.assert(pTag.classList.contains('raj'), 'Raj worked on this issue!');
+    console.assert(pTag.classList.contains('dummy-class'), 'p tag has a dummy class!');
+
+    // clearing
+    console.clear();
+
+    // Viewing DOM Elements
+    console.log(pTag);
+    console.dir(pTag);
+
+    console.clear();
+
+    // Grouping together
+    dogs.forEach(dog => {
+        // console.group(`${dog.name}`);
+        console.groupCollapsed(`${dog.name}`);
+        console.log(`This is ${dog.name}.`);
+        console.log(`${dog.name} is ${dog.age} years old.`);
+        console.log(`Means it is ${dog.age * 7} dog years old.`);
+        console.groupEnd(`${dog.name}`);
+    });
+
+    // counting
+    console.count('Angular');
+    console.count('React');
+    console.count('Angular');
+    console.count('Angular');
+    console.count('Angular');
+    console.count('React');
+    console.count('Angular');
+    console.count('React');
+    console.count('React');
+    console.count('React');
+    console.count('React');
+    console.count('React');
+    console.count('React');
+    console.count('Angular');
+
+    // timing
+    console.time('Fetching Github Users');
+    fetch('https://api.github.com/users/rkaranam')
+    .then(data => data.json()) 
+    .then(res => {
+        console.timeEnd('Fetching Github Users');
+        console.log(res);
+    });
+
+    // table
+    console.table(dogs);
+
+  </script>
+</body>
+</html>
